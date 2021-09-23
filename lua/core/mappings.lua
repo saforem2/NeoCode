@@ -193,6 +193,7 @@ as.map("n", "<leader>ql", ":SLoad<CR>")
 -- Open/Run {{{1
 -----------------------------------------------------------------------------//
 as.map("n", "<leader>r|", [[:execute "set colorcolumn=" . (&colorcolumn == "0" ? "81" : "")<CR>]])
+as.map("n", "<F6>", "TSHighlightCapturesUnderCursor<CR>")
 as.map("n", "<leader>rr", "@:<CR>")
 as.map("n", "<leader>r'", ":Startify<CR>")
 as.map("n", "<leader>ri", ":IndentBlanklineToggle<CR>")

@@ -71,6 +71,7 @@ local pack_use = function()
     -- Treesitter {{{1
     -----------------------------------------------------------------------------//
     use { "nvim-treesitter/playground", cmd = "TSHighlightCapturesUnderCursor" }
+    use { "nvim-treesitter/tree-sitter-query", cmd = "query" }
     use {
         "nvim-treesitter/nvim-treesitter",
         branch = "0.5-compat",
@@ -195,6 +196,31 @@ local pack_use = function()
     -----------------------------------------------------------------------------//
     -- General plugins {{{1
     -----------------------------------------------------------------------------//
+    use { "ntbbloodbath/doom-one.nvim" }
+    use { "ActivityWatch/aw-watcher-vim" }
+    -- use { "p00f/nvim-ts-rainbow" }
+    use { "kyazdani42/nvim-web-devicons" }
+    use {
+        "folke/lsp-colors.nvim",
+        config = function()
+            require("lsp-colors").setup({
+                Error = "#F20052",
+                Warning = "#FFFF00",
+                Information = "#00CCFF",
+                Hint = "#63FF51",
+            })
+        end,
+    }
+    use { "glepnir/lspsaga.nvim" }
+    use { "nvim-lua/popup.nvim" }
+    use { "wfxr/code-minimap" }
+    -- use { "AndrewRadev/splitjoin.vim" }
+    use { "lervag/vimtex" }
+    use { "jremmen/vim-ripgrep" }
+    use { "wakatime/vim-wakatime" }
+    use { "jakewvincent/texmagic.nvim" }
+    use { "tjdevries/colorbuddy.nvim" }
+    use { "tanvirtin/nvim-monokai" }
     use { "kevinhwang91/nvim-bqf", ft = "qf" }
     use {
         "ahmedkhalf/project.nvim",
@@ -235,16 +261,22 @@ local pack_use = function()
     }
     use {
         "norcalli/nvim-colorizer.lua",
-        ft = { "html", "css", "javascript" },
+        ft = { "html", "css", "javascript", "python", "lua" },
         cmd = { "ColorizerToggle", "ColorizerAttachToBuffer" },
         config = function()
-            require("colorizer").setup({ "html", "javascript", "css" }, {
+            require("colorizer").setup({ "html", "javascript", "css", "python", "lua" }, {
                 RRGGBBAA = true,
                 rgb_fn = true,
                 hsl_fn = true,
                 css = true,
                 css_fn = true,
             })
+        end,
+    }
+    use {
+        "akinsho/nvim-bufferline.lua",
+        config = function()
+            require("modules.plugins.bufferline").config()
         end,
     }
 end
